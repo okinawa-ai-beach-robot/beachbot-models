@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "beachbot_models"
+dynamic = ["version"]
+authors = [
+    { name = "Christopher Buckley"},
+]
+description = "Wrappers for online model storage like huggingface with common defaults for beachbot project"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+]
+license = { text = "CC BY-NC 4.0" }
+
+requires-python = ">=3.8, <3.12"
+
+dependencies = [
+    "tabulate==0.9.0",
+]
+
+[project.urls]
+Source = "https://github.com/okinawa-ai-beach-robot/beachbot-models"
+Issues = "https://github.com/okinawa-ai-beach-robot/beachbot-models/issues"
+
+[tool.hatch.build.targets.sdist]
+sources = ["src"]
+
+[tool.hatch.build.targets.wheel]
+sources = ["src"]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "_version.py"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_level = "INFO"
