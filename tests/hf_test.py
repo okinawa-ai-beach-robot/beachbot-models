@@ -1,14 +1,10 @@
 from pathlib import Path
 
 import pandas as pd
-import yolov5
-from beachbot.config import config, logger
-from beachbot_od.huggingface_api import (create_model_card,
-                                         generate_results_table,
-                                         get_base_weights, get_file,
-                                         get_weights)
-from beachbot_od.utils.models import Model
-from beachbot_od.utils.supported_models import SupportedModels
+from beachbot_models.hf import (create_model_card, generate_results_table,
+                                get_base_weights, get_file, get_weights)
+from beachbot_models.models import Model
+from beachbot_models.supported_models import SupportedModels
 
 
 def test_get_file():

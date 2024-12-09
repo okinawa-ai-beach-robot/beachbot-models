@@ -1,10 +1,9 @@
 from pathlib import Path
 from typing import Optional
 
-import yolov5
-from beachbot.config import config
-from beachbot_od.huggingface_api import get_weights
-from beachbot_od.utils.supported_models import SupportedModels
+from beachbot_config import config
+from beachbot_models.hf import get_weights
+from beachbot_models.supported_models import SupportedModels
 from huggingface_hub import HfApi
 
 BEACHBOT_MODELS = Path(config.BEACHBOT_MODELS)

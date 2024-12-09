@@ -5,14 +5,12 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
-from beachbot.config import config, logger
-from beachbot_od.config import config as od_config
-from beachbot_od.utils.supported_models import SupportedModels
+from beachbot_config import config, logger
+from beachbot_models.supported_models import SupportedModels
+from beachbot_models.config import load_config_file
 from huggingface_hub import ModelCard, ModelCardData, hf_hub_download
 
 BEACHBOT_MODELS = Path(config.BEACHBOT_MODELS)
-HF_MODEL_CARD = od_config.CONFIG_TYPE.HF_MODEL_CARD
-
 
 def get_file(
     filename: str,
@@ -158,7 +156,7 @@ def create_model_card(
         config_path = Path(config.BEACHBOT_CONFIG / "model_card_config.yaml")
 
     # Load defaults from config file
-    defaults = od_config.load_config_file(HF_MODEL_CARD, config_path)
+    defaults = load_config_file(config_path)
 
     # Handle 'card_data' separately as it's an object
     defaults["card_data"] = ModelCardData(**defaults["card_data"])
